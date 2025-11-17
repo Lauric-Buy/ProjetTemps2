@@ -2,13 +2,47 @@
 <html th:replace="base :: html" lang="fr" xmlns:th="http://www.thymeleaf.org">
 
 <div th:fragment="content">
-    <main class="py-5">
+    <main class="hero-background py-5">
         <div class="container">
-            <h1 class="mb-5 text-center">Bienvenue sur <strong>E-Kommerce</strong></h1>
-
-
+            <h1 class="mb-5 text-center title-text">Bienvenue sur <strong>The Watchers</strong></h1>
 
         </div>
+
+        <!-- CATEGORIES DE MONTRES -->
+        <div class="categories-container">
+
+            <a href="/categories/squelettes" class="category-btn">
+                <img src="/img/montre_squelettes.jpg" alt="Montres squelettes">
+                <span>squelettes</span>
+            </a>
+
+            <a href="/categories/or" class="category-btn">
+                <img src="/img/montre_or.jpg" alt="Montres en or">
+                <span>Or</span>
+            </a>
+
+            <a href="/categories/automatique" class="category-btn">
+                <img src="/img/montre_automatique.jpeg" alt="Montres automatiques">
+                <span>Automatique</span>
+            </a>
+
+            <a href="/categories/hommes" class="category-btn">
+                <img src="/img/montre_hommes.jpg" alt="Montres hommes">
+                <span>Hommes</span>
+            </a>
+
+            <a href="/categories/femmes" class="category-btn">
+                <img src="/img/montre_femmes.jpg" alt="Montres femmes">
+                <span>Femmes</span>
+            </a>
+
+            <a href="/categories/phase_de_lune" class="category-btn">
+                <img src="/img/montre_phase_de_lune.jpeg" alt="Montres phase de lune">
+                <span>Phase de lune</span>
+            </a>
+
+        </div>
+        <!-- FIN CATEGORIES -->
     </main>
 </div>
 

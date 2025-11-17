@@ -1,0 +1,15 @@
+body{
+    .hero-background {
+        background-image: url("../img/pngtree-above-view-of-repairing-old-mechanical-watch-image_15682636.jpg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        min-height: 100vh;
+    }
+    .title-text {
+        color: #f7d774; /* or chaud */
+        text-shadow: 0 0 12px rgba(0,0,0,0.7);
+    }
+
+
+}
