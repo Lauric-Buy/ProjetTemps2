@@ -1,20 +1,22 @@
 package org.ldv.projettemps2.controller
 
+import org.ldv.projettemps2.model.dao.UtilisateurDAO
 import org.springframework.security.core.Authentication
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestParam
 
+
 @Controller
-class MainController (){
+class MainController (val utilisateurDAO: UtilisateurDAO){
 
 
     /**
      * Méthode permettant d'afficher la page d'accueil de l'application.
      * @return le chemin vers le template a partir du dossier ressources/templates (on ne marque pas le .html)
      */
-    @GetMapping("/ProjetTemps2")
+    @GetMapping("/TheWatchers")
     fun home():String{
         return "index"
     }
@@ -27,7 +29,12 @@ class MainController (){
     }
 
     @GetMapping("/TheWatchers/profil")
-    fun profile(authentication: Authentication): String {
+    fun profile(authentication: Authentication,  model: Model): String {
+        // Récupération des informations utilisateurs :
+        val email = authentication.name
+        val utilisateur = utilisateurDAO.findByEmail(authentication.name)
+
+        model.addAttribute("user" , utilisateur)
 
         // Récupération des rôles (authorities) de l’utilisateur connecté
         val roles = authentication.authorities.map { it.authority }
@@ -38,6 +45,7 @@ class MainController (){
         }
 
         // Sinon → on affiche la page profile
+
         return "pagesClient/profile"
     }
 

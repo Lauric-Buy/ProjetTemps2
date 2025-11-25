@@ -22,7 +22,7 @@ class SecurityConfig {
     @Bean
     fun filterChain(http: HttpSecurity): SecurityFilterChain {
         http
-            //TODO Retirer cette ligne
+            .csrf { it.disable() }//TODO Retirer cette ligne
             //Restriction des endpoints en fonction du role
             .authorizeHttpRequests {
                 it.requestMatchers("/TheWatchers", "/TheWatchers/register", "/TheWatchers/login", "/css/**", "/js/**", "/img/**", "/favicon.ico").permitAll()

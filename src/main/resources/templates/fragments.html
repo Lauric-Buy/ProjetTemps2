@@ -33,6 +33,7 @@
                             <i class="bi bi-grid"></i>
                             Produits
                         </a></li>
+                        <!-- Dirige vers les informations du compte clients ou redirige vers la page de login -->
                         <li><a href="#" class="nav-link text-white">
                             <i class="bi bi-person-circle"></i>
                             Compte clients
@@ -41,6 +42,14 @@
                 </div>
             </div>
         </div>
+
+        <div class="col-md-3 mb-3">
+            <div sec:authorize="isAuthenticated()" class="nav-item">
+                <form action="/e-kommerce/logout" method="post"
+                    <button type="submit" class="btn btn-light text-dark me-2">Logout</button>
+                </form>
+            </div>
+
         <div class="px-3 py-2 border-bottom mb-3">
             <div class="container d-flex flex-wrap justify-content-center">
                 <form class="col-12 col-lg-auto mb-2 mb-lg-0 me-lg-auto" role="search"><input type="search"
@@ -49,8 +58,10 @@
                                                                                               aria-label="Search">
                 </form>
                 <div class="text-end">
-                    <button type="button" class="btn btn-light text-dark me-2">Se connecter</button>
-                    <button type="button" class="btn btn-primary">Créer un compte</button>
+                    <!-- Direction vers la page de login -->
+                    <button sec:authorize="isAnonymous()" type="button" class="btn btn-light text-dark me-2">Se connecter</button>
+                    <!-- Direction vers la page de création de compte -->
+                    <button sec:authorize="isAnonymous()" type="button" class="btn btn-primary">Créer un compte</button>
                 </div>
             </div>
         </div>
